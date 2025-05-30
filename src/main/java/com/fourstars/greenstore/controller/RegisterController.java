@@ -1,4 +1,4 @@
-package com.fourstars.greenstore.controller.admin;
+package com.fourstars.greenstore.controller;
 
 import java.util.Collections;
 import java.util.Date;
