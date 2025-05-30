@@ -118,7 +118,7 @@ public class ProductController {
             productRepository.save(p);
             if (null != p) {
                 String filePath = pathUploadImage + "/" + p.getProductId() + ".png";
-                String qrCodeContent = "http:/192.168.1.5:8077/aboutUs";
+                String qrCodeContent = "http://localhost:8077/product/{id}";
                 int width = 400;
                 int height = 400;
                 qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
