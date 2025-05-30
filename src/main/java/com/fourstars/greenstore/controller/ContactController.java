@@ -31,7 +31,7 @@ public class ContactController extends CommomController {
     public String sendemail(Model model, @ModelAttribute("mailsup") Mailsup mailsup) throws MessagingException {
 
         // sendMail
-        commomDataService.sendEmailSupport("huynhhung728@gmail.com", mailsup.getTitle(), mailsup);
+        commomDataService.sendEmailSupport("jenny.180820@gmail.com", mailsup.getTitle(), mailsup);
         model.addAttribute("message", "Send Success");
         return "redirect:/contact";
     }
