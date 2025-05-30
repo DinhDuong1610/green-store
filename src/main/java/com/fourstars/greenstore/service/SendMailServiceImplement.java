@@ -16,6 +16,7 @@ import com.fourstars.greenstore.dto.MailInfo;
 import com.fourstars.greenstore.service.impl.SendMailService;
 
 import jakarta.mail.MessagingException;
+import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
 @Service
@@ -31,7 +32,8 @@ public class SendMailServiceImplement implements SendMailService {
         MimeMessage message = sender.createMimeMessage();
         // Sử dụng Helper để thiết lập các thông tin cần thiết cho message
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
-        helper.setFrom(mail.getFrom());
+        // helper.
+        helper.setFrom(new InternetAddress("jenny.180820@gmail.com", "GreenStore Team"));
         helper.setTo(mail.getTo());
         helper.setSubject(mail.getSubject());
         helper.setText(mail.getBody(), true);

@@ -25,15 +25,10 @@ public class WebSecurityConfig {
 	private UserDetailService userDetailService;
 
 	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-
-	@Bean
-	public DaoAuthenticationProvider authenticationProvider() {
+	public DaoAuthenticationProvider authenticationProvider(BCryptPasswordEncoder passwordEncoder) {
 		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
 		auth.setUserDetailsService(userDetailService);
-		auth.setPasswordEncoder(passwordEncoder());
+		auth.setPasswordEncoder(passwordEncoder);
 		return auth;
 	}
 
@@ -66,13 +61,15 @@ public class WebSecurityConfig {
 				.clearAuthentication(true)
 				.permitAll()
 				.and()
-				.rememberMe().rememberMeParameter("remember");
+				.rememberMe()
+				.rememberMeParameter("remember")
+				.userDetailsService(userDetailService);
 
 		return http.build();
 	}
 
-	@Autowired
-	public void bindProvider(AuthenticationManagerBuilder auth) {
-		auth.authenticationProvider(authenticationProvider());
-	}
+	// @Autowired
+	// public void bindProvider(AuthenticationManagerBuilder auth) {
+	// auth.authenticationProvider(authenticationProvider());
+	// }
 }
