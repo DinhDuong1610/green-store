@@ -34,7 +34,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
                         + "COUNT(*) AS SoLuong\r\n"
                         + "FROM products p\r\n"
                         + "JOIN categories c ON p.category_id = c.category_id\r\n"
-                        + "GROUP BY c.category_name;", nativeQuery = true)
+                        + "GROUP BY c.category_id, c.category_name;", nativeQuery = true) // <-- Đã sửa
         List<Object[]> listCategoryByProductName();
 
         @Query(value = "SELECT p.product_id,\r\n"
