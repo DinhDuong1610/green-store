@@ -109,11 +109,7 @@ public class ProfileController extends CommomController {
 
         List<OrderDetail> listO = orderDetailRepository.findByOrderId(id);
 
-        // model.addAttribute("amount", orderRepository.findById(id).get().getAmount());
         model.addAttribute("orderDetail", listO);
-        // model.addAttribute("orderId", id);
-        // set active front-end
-        // model.addAttribute("menuO", "menu");
         commomDataService.commonData(model, user);
 
         return new ModelAndView("web/historyOrderDetail");
@@ -132,7 +128,6 @@ public class ProfileController extends CommomController {
         return new ModelAndView("redirect:/profile", model);
     }
 
-    // edit user
     @PostMapping(value = "/editUser")
     public String editUser(@Validated @ModelAttribute("user") User user, ModelMap model,
             BindingResult bindingResult) {

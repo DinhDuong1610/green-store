@@ -41,7 +41,6 @@ public class FaqController {
         return user;
     }
 
-    // show list category - table list
     @ModelAttribute("faqs")
     public List<Faq> showFaq(Model model) {
         List<Faq> faqs = faqRepository.findAll();
@@ -58,7 +57,6 @@ public class FaqController {
         return "admin/faqs";
     }
 
-    // add category
     @PostMapping(value = "/addFaq")
     public String addCategory(@Validated @ModelAttribute("faq") Faq faq, ModelMap model,
             BindingResult bindingResult) {
@@ -69,13 +67,11 @@ public class FaqController {
             return "admin/faqs";
         }
         faqRepository.save(faq);
-        // menuRepository.save(menu);
         model.addAttribute("message", "successful!");
 
         return "redirect:/admin/faqs";
     }
 
-    // get Edit category
     @GetMapping(value = "/editFaq/{id}")
     public String editCategory(@PathVariable("id") Long id, ModelMap model) {
         Faq faq = faqRepository.findById(id).orElse(null);
@@ -85,7 +81,6 @@ public class FaqController {
         return "admin/editFaq";
     }
 
-    // delete category
     @GetMapping("/deleteFaq/{id}")
     public String delCategory(@PathVariable("id") Long id, Model model) {
         faqRepository.deleteById(id);

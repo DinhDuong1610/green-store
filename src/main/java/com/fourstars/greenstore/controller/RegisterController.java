@@ -94,7 +94,6 @@ public class RegisterController {
         return new ModelAndView("web/confirmOtpRegister", model);
     }
 
-    // check email
     public boolean checkEmail(String email) {
         List<User> list = userRepository.findAll();
         for (User c : list) {

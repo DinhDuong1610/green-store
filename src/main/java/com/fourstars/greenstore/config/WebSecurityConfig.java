@@ -49,6 +49,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 				.authorizeHttpRequests()
 				.requestMatchers("/admin/**").hasRole("ADMIN")
 				.requestMatchers("/checkout").hasRole("USER")
+				.requestMatchers("/favorite").hasRole("USER")
 				.anyRequest().permitAll()
 				.and()
 				.formLogin()
@@ -72,9 +73,4 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
 		return http.build();
 	}
-
-	// @Autowired
-	// public void bindProvider(AuthenticationManagerBuilder auth) {
-	// auth.authenticationProvider(authenticationProvider());
-	// }
 }

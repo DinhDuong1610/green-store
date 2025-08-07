@@ -129,7 +129,7 @@
 											</th:block>
 										</div>
 
-										<th:block th:if="${user.email != null}">
+										<th:block th:if="${user != null}">
 											<button class="product-wish" th:if="${item.favorite} == false">
 												<i class="fas fa-heart"></i>
 											</button>
@@ -141,7 +141,7 @@
 
 										</th:block>
 
-										<th:block th:if="${user.email == null}">
+										<th:block th:if="${user == null}">
 											<button class="product-wish">
 												<i class="fas fa-heart"></i>
 											</button>
@@ -154,12 +154,12 @@
 										</a>
 										<div class="product-widget">
 
-											<th:block href="/login" th:if="${user.email == null}">
-												<a title="Hãy đăng nhập" th:href="@{/login}" class="fas fa-heart">
-												</a>
+											<th:block th:if="${user == null}">
+												<a title="Hãy đăng nhập để yêu thích" th:href="@{/login}"
+													class="fas fa-heart"></a>
 											</th:block>
 
-											<th:block th:if="${user.email != null}">
+											<th:block th:if="${user != null}">
 												<a th:if="${item.favorite} == false" title="Yêu thích"
 													th:href="@{/doFavorite(id=${item.productId})}" class="fas fa-heart">
 												</a>

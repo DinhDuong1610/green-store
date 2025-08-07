@@ -237,13 +237,13 @@
 											<tr th:each="item : ${products}">
 												<td>[[${item?.productId}]]</td>
 												<td>
-													<img th:src="@{'/app/api/products/loadImage/'+ ${item.productImage}}"
+													<img th:src="@{'/loadImage?imageName='+${item.productImage}}"
 														width="80px" alt="product" />
 												</td>
 
 												<td>
 													<div class="thu-nghiem-zoom">
-														<img th:src="@{'/app/api/products/loadImage/'+${item.qrCode}}"
+														<img th:src="@{'/loadImage?imageName='+${item.qrCode}}"
 															width="80px" alt="QR" />
 													</div>
 												</td>

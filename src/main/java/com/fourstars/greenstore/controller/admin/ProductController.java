@@ -80,7 +80,6 @@ public class ProductController {
         this.categoryRepository = categoryRepository;
     }
 
-    // show list product - table list
     @ModelAttribute("products")
     public List<Product> showProduct(Model model) {
         List<Product> products = productRepository.findAll();
@@ -96,7 +95,6 @@ public class ProductController {
         return "admin/products";
     }
 
-    // add product
     @PostMapping(value = "/addProduct")
     public String addProduct(@ModelAttribute("product") Product product, ModelMap model,
             @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
@@ -140,7 +138,6 @@ public class ProductController {
 
     }
 
-    // show select option ở add product
     @ModelAttribute("categoryList")
     public List<Category> showCategory(Model model) {
         List<Category> categoryList = categoryRepository.findAll();
@@ -149,7 +146,6 @@ public class ProductController {
         return categoryList;
     }
 
-    // get Edit brand
     @GetMapping(value = "/editProduct/{id}")
     public String editCategory(@PathVariable("id") Long id, ModelMap model) {
         Product product = productRepository.findById(id).orElse(null);
@@ -159,7 +155,6 @@ public class ProductController {
         return "admin/editProduct";
     }
 
-    // edit product
     @PostMapping(value = "/editProduct")
     public String editProduct(@ModelAttribute("product") Product p, ModelMap model,
             @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) throws IOException {
@@ -201,7 +196,6 @@ public class ProductController {
         return "redirect:/admin/products";
     }
 
-    // delete category
     @GetMapping("/deleteProduct/{id}")
     public String delProduct(@PathVariable("id") Long id, Model model) throws IOException {
         try {

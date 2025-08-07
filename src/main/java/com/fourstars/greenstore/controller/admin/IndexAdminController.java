@@ -52,7 +52,6 @@ public class IndexAdminController {
         return "/admin/users";
     }
 
-    // to excel
     @GetMapping(value = "/export3")
     public void exportToExcel3(HttpServletResponse response) throws IOException {
 

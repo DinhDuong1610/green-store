@@ -24,7 +24,6 @@ public class ReportController {
     @Autowired
     OrderDetailRepository orderDetailRepository;
 
-    // Statistics by product sold
     @GetMapping(value = "/admin/reports")
     public String report(Model model, Principal principal) throws SQLException {
         User user = userRepository.findByEmail(principal.getName());
@@ -38,7 +37,6 @@ public class ReportController {
         return "admin/statistical";
     }
 
-    // Statistics by category sold
     @RequestMapping(value = "/admin/reportCategory")
     public String reportcategory(Model model, Principal principal) throws SQLException {
         User user = userRepository.findByEmail(principal.getName());
@@ -52,7 +50,6 @@ public class ReportController {
         return "admin/stacategory";
     }
 
-    // Statistics of products sold by year
     @RequestMapping(value = "/admin/reportYear")
     public String reportyear(Model model, Principal principal) throws SQLException {
         User user = userRepository.findByEmail(principal.getName());
@@ -66,7 +63,6 @@ public class ReportController {
         return "admin/stayear";
     }
 
-    // Statistics of products sold by month
     @RequestMapping(value = "/admin/reportMonth")
     public String reportmonth(Model model, Principal principal) throws SQLException {
         User user = userRepository.findByEmail(principal.getName());
@@ -80,7 +76,6 @@ public class ReportController {
         return "admin/stamonth";
     }
 
-    // Statistics of products sold by quarter
     @RequestMapping(value = "/admin/reportQuarter")
     public String reportquarter(Model model, Principal principal) throws SQLException {
         User user = userRepository.findByEmail(principal.getName());
@@ -94,7 +89,6 @@ public class ReportController {
         return "admin/staquar";
     }
 
-    // Statistics by user
     @RequestMapping(value = "/admin/reportOrderCustomer")
     public String reportordercustomer(Model model, Principal principal) throws SQLException {
         User user = userRepository.findByEmail(principal.getName());

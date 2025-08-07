@@ -76,7 +76,6 @@ public class OrderController {
         return user;
     }
 
-    // list order
     @GetMapping(value = "/orders")
     public String orders(Model model, Principal principal) {
 
@@ -94,7 +93,6 @@ public class OrderController {
         model.addAttribute("amount", orderRepository.findById(id).get().getAmount());
         model.addAttribute("orderDetail", listO);
         model.addAttribute("orderId", id);
-        // set active front-end
         model.addAttribute("menuO", "menu");
         return new ModelAndView("admin/editOrder", model);
     }
@@ -146,7 +144,6 @@ public class OrderController {
         return new ModelAndView("forward:/admin/orders", model);
     }
 
-    // to excel
     @GetMapping(value = "/export")
     public void exportToExcel(HttpServletResponse response) throws IOException {
 
@@ -162,9 +159,7 @@ public class OrderController {
         excelExporter.export(response);
 
     }
-    // to excel
 
-    // to pdf
     @GetMapping("/orderPdf")
     public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
         response.setContentType("application/pdf");
@@ -182,7 +177,6 @@ public class OrderController {
 
     }
 
-    // to pdf
     @GetMapping("/productPdf")
     public void productToPDF(HttpServletResponse response) throws DocumentException, IOException {
         response.setContentType("application/pdf");

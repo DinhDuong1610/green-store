@@ -73,7 +73,6 @@ public class CartController extends CommomController {
         return "web/shoppingCart_checkout";
     }
 
-    // add cartItem
     @GetMapping(value = "/addToCart")
     public String add(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {
 
@@ -95,7 +94,6 @@ public class CartController extends CommomController {
         return "redirect:/products";
     }
 
-    // delete cartItem
     @SuppressWarnings("unlikely-arg-type")
     @GetMapping(value = "/remove/{id}")
     public String remove(@PathVariable("id") Long id, HttpServletRequest request, Model model) {
@@ -115,7 +113,6 @@ public class CartController extends CommomController {
         return "redirect:/checkout";
     }
 
-    // show check out
     @GetMapping(value = "/checkout")
     public String checkOut(Model model, User user) {
 
@@ -139,7 +136,6 @@ public class CartController extends CommomController {
         return "web/shoppingCart_checkout";
     }
 
-    // submit checkout
     @PostMapping(value = "/checkout")
     @Transactional
     public String checkedOut(Model model, Order order, HttpServletRequest request, User user)
@@ -164,7 +160,6 @@ public class CartController extends CommomController {
         orderRepository.save(order);
 
         for (CartItem cartItem : cartItems) {
-            // save detail
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setQuantitydetail(cartItem.getQuantity());
             orderDetail.setOrder(order);
@@ -174,7 +169,6 @@ public class CartController extends CommomController {
             orderDetailRepository.save(orderDetail);
         }
 
-        // sendMail
         commomDataService.sendSimpleEmail(user.getEmail(), "Greeny-Shop Xác Nhận Đơn hàng", "aaaa", cartItems,
                 totalPrice, order);
 
@@ -185,7 +179,6 @@ public class CartController extends CommomController {
         return "redirect:/checkout_success";
     }
 
-    // done checkout ship cod
     @GetMapping(value = "/checkout_success")
     public String checkoutSuccess(Model model, User user) {
         commomDataService.commonData(model, user);
@@ -194,7 +187,6 @@ public class CartController extends CommomController {
 
     }
 
-    // done checkout paypal
     @GetMapping(value = "/checkout_paypal_success")
     public String paypalSuccess(Model model, User user) {
         commomDataService.commonData(model, user);
@@ -203,7 +195,6 @@ public class CartController extends CommomController {
 
     }
 
-    // xoa 1 cartItem
     @GetMapping(value = "/xoaToCart")
     public String update(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {
 
@@ -230,7 +221,6 @@ public class CartController extends CommomController {
         return "redirect:/checkout";
     }
 
-    // xoa 1 cartItem
     @GetMapping(value = "/deleteaproduct")
     public String delete(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {
 
@@ -251,9 +241,7 @@ public class CartController extends CommomController {
             shoppingCartService.add(item);
             for (CartItem cartItem : cartItems) {
                 if (cartItem.getId() == item.getId() && cartItem.getQuantity() == 0) {
-                    // String a ="redirect:/removeCart/";
-                    // String id = String.valueOf(item.getId());
-                    // a.
+
                     return "redirect:/removeCart/" + item.getId();
                 }
             }
@@ -265,7 +253,6 @@ public class CartController extends CommomController {
         return "redirect:/products";
     }
 
-    // tang 1 cartItem
     @GetMapping(value = "/tangToCart")
     public String tang(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {
 
@@ -287,7 +274,6 @@ public class CartController extends CommomController {
         return "redirect:/checkout";
     }
 
-    // delete cartItem
     @SuppressWarnings("unlikely-arg-type")
     @GetMapping(value = "/removeCart/{id}")
     public String removeCart(@PathVariable("id") Long id, HttpServletRequest request, Model model) {

@@ -41,7 +41,6 @@ public class CmtController {
         return user;
     }
 
-    // show list category - table list
     @ModelAttribute("comments")
     public List<Comment> showCategory(Model model) {
         List<Comment> comments = commentRepository.findAll();
@@ -57,7 +56,6 @@ public class CmtController {
         return "admin/comment";
     }
 
-    // get Edit brand
     @GetMapping(value = "/detailComment/{id}")
     public String detailComment(@PathVariable("id") Long id, ModelMap model) {
         Comment comment = commentRepository.findById(id).orElse(null);
@@ -67,7 +65,6 @@ public class CmtController {
         return "admin/commentDetail";
     }
 
-    // delete category
     @GetMapping("/deleteComment/{id}")
     public String delCategory(@PathVariable("id") Long id, Model model) {
         commentRepository.deleteById(id);

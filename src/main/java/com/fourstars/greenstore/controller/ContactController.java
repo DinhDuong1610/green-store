@@ -30,7 +30,6 @@ public class ContactController extends CommomController {
     @PostMapping(value = "/sendmail")
     public String sendemail(Model model, @ModelAttribute("mailsup") Mailsup mailsup) throws MessagingException {
 
-        // sendMail
         commomDataService.sendEmailSupport("jenny.180820@gmail.com", mailsup.getTitle(), mailsup);
         model.addAttribute("message", "Send Success");
         return "redirect:/contact";

@@ -107,7 +107,7 @@
 
 						</div>
 						<div class="details-action-group">
-							<th:block th:if="${user.email != null}">
+							<th:block th:if="${user != null}">
 								<a th:if="${product.favorite} == false" title="Yêu thích"
 									th:href="@{/doFavoriteDetails(id=${product.productId})}" class="details-wish">
 									<i class="icofont-heart"></i>
@@ -120,7 +120,7 @@
 							</div>
 						</th:block>
 						<div class="details-action-group">
-							<th:block th:if="${user.email != null}">
+							<th:block th:if="${user != null}">
 								<th:block th:if="${commentListcheck == 1}">
 									<div>
 										<form class="news-form rating" th:action="@{/addComment}" method="post">
@@ -267,7 +267,7 @@
 										</th:block>
 									</div>
 
-									<th:block th:if="${user.email != null}">
+									<th:block th:if="${user != null}">
 										<button class="product-wish" th:if="${item.favorite} == false">
 											<i class="fas fa-heart"></i>
 										</button>
@@ -279,7 +279,7 @@
 
 									</th:block>
 
-									<th:block th:if="${user.email == null}">
+									<th:block th:if="${user == null}">
 										<button class="product-wish">
 											<i class="fas fa-heart"></i>
 										</button>
@@ -289,12 +289,12 @@
 										<img th:src="@{'/loadImage?imageName='+${item.productImage}}" alt="product" />
 									</a>
 									<div class="product-widget">
-										<th:block href="/login" th:if="${user.email == null}">
+										<th:block href="/login" th:if="${user == null}">
 											<a title="Hãy đăng nhập" th:href="@{/login}" class="fas fa-heart">
 											</a>
 										</th:block>
 
-										<th:block th:if="${user.email != null}">
+										<th:block th:if="${user != null}">
 											<a th:if="${product.favorite} == false" title="Yêu thích"
 												th:href="@{/doFavorite(id=${item.productId})}" class="fas fa-heart">
 											</a>

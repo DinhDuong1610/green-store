@@ -26,6 +26,7 @@ import com.fourstars.greenstore.repository.UserRepository;
 public class CategoryController {
     @Autowired
     MenuRepository menuRepository;
+
     @Autowired
     CategoryRepository categoryRepository;
 
@@ -60,7 +61,6 @@ public class CategoryController {
         return "admin/categories";
     }
 
-    // add category
     @PostMapping(value = "/addCategory")
     public String addCategory(@Validated @ModelAttribute("category") Category category, ModelMap model,
             BindingResult bindingResult) {
@@ -71,13 +71,11 @@ public class CategoryController {
             return "admin/categories";
         }
         categoryRepository.save(category);
-        // menuRepository.save(menu);
         model.addAttribute("message", "successful!");
 
         return "redirect:/admin/categories";
     }
 
-    // get Edit category
     @GetMapping(value = "/editCategory/{id}")
     public String editCategory(@PathVariable("id") Long id, ModelMap model) {
         Category category = categoryRepository.findById(id).orElse(null);
@@ -87,7 +85,6 @@ public class CategoryController {
         return "admin/editCategory";
     }
 
-    // add category
     @PostMapping(value = "/editCategory")
     public String editCategory(@Validated @ModelAttribute("category") Category category, ModelMap model,
             BindingResult bindingResult) {
@@ -98,13 +95,11 @@ public class CategoryController {
             return "admin/categories";
         }
         categoryRepository.save(category);
-        // menuRepository.save(menu);
         model.addAttribute("message", "successful!");
 
         return "redirect:/admin/categories";
     }
 
-    // delete category
     @GetMapping("/delete/{id}")
     public String delCategory(@PathVariable("id") Long id, Model model) {
         categoryRepository.deleteById(id);
