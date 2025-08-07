@@ -28,11 +28,8 @@ public class SendMailServiceImplement implements SendMailService {
 
     @Override
     public void send(MailInfo mail) throws MessagingException, IOException {
-        // Tạo message
         MimeMessage message = sender.createMimeMessage();
-        // Sử dụng Helper để thiết lập các thông tin cần thiết cho message
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
-        // helper.
         helper.setFrom(new InternetAddress("jenny.180820@gmail.com", "GreenStore Team"));
         helper.setTo(mail.getTo());
         helper.setSubject(mail.getSubject());
@@ -44,7 +41,6 @@ public class SendMailServiceImplement implements SendMailService {
             helper.addAttachment(mail.getAttachments(), file);
         }
 
-        // Gửi message đến SMTP server
         sender.send(message);
 
     }

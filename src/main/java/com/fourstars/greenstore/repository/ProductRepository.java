@@ -15,26 +15,21 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
         @Query(value = "SELECT * FROM products WHERE product_name = ?", nativeQuery = true)
         public Optional<Product> ProductName(String product_name);
 
-        // List product by category
         @Query(value = "SELECT * FROM products WHERE category_id = ?", nativeQuery = true)
         public List<Product> listProductByCategory(Long categoryId);
 
         @Query(value = "SELECT *  FROM products where price >=?1 and price <=?2", nativeQuery = true)
         public List<Product> searchPrice(int from, int to);
 
-        // Top 10 product by category
         @Query(value = "SELECT * FROM products AS b WHERE b.category_id = ?;", nativeQuery = true)
         List<Product> listProductByCategory10(Long categoryId);
 
-        // List product new
         @Query(value = "SELECT * FROM products ORDER BY entered_date DESC limit 20;", nativeQuery = true)
         public List<Product> listProductNew20();
 
-        // Search Product
         @Query(value = "SELECT * FROM products WHERE product_name LIKE %?1%", nativeQuery = true)
         public List<Product> searchProduct(String productName);
 
-        // count quantity by product
         @Query(value = "SELECT c.category_id,c.category_name,\r\n"
                         + "COUNT(*) AS SoLuong\r\n"
                         + "FROM products p\r\n"
@@ -42,7 +37,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
                         + "GROUP BY c.category_name;", nativeQuery = true)
         List<Object[]> listCategoryByProductName();
 
-        // Top 20 product best sale
         @Query(value = "SELECT p.product_id,\r\n"
                         + "COUNT(*) AS SoLuong\r\n"
                         + "FROM order_details p\r\n"
