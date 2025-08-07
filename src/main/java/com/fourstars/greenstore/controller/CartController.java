@@ -203,8 +203,6 @@ public class CartController extends CommomController {
 
     }
 
-    // Long Comment....
-
     // xoa 1 cartItem
     @GetMapping(value = "/xoaToCart")
     public String update(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {

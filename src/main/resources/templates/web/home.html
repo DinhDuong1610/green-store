@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="author" content="mironcoder" />
-<meta name="email" content="mironcoder@gmail.com" />
-<meta name="profile" content="https://themeforest.net/user/mironcoder" />
-<meta name="template" content="greeny" />
-<meta name="title" content="greeny - Ecommerce Food Store HTML Template" />
-<meta name="keywords"
-	content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online" />
-<title>Web bán hàng nông sản</title>
-<link rel="icon" href="images/favicon.png" />
-<link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
-<link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
-<link rel="stylesheet" href="fonts/fontawesome/fontawesome.min.css" />
-<link rel="stylesheet" href="vendor/venobox/venobox.min.css" />
-<link rel="stylesheet" href="vendor/slickslider/slick.min.css" />
-<link rel="stylesheet" href="vendor/niceselect/nice-select.min.css" />
-<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
-<link rel="stylesheet" href="css/main.css" />
-<link rel="stylesheet" href="css/index.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="author" content="mironcoder" />
+	<meta name="email" content="mironcoder@gmail.com" />
+	<meta name="profile" content="https://themeforest.net/user/mironcoder" />
+	<meta name="template" content="greeny" />
+	<meta name="title" content="greeny - Ecommerce Food Store HTML Template" />
+	<meta name="keywords"
+		content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online" />
+	<title>Bách hóa xanh</title>
+	<link rel="icon" href="images/favicon.png" />
+	<link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
+	<link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
+	<link rel="stylesheet" href="fonts/fontawesome/fontawesome.min.css" />
+	<link rel="stylesheet" href="vendor/venobox/venobox.min.css" />
+	<link rel="stylesheet" href="vendor/slickslider/slick.min.css" />
+	<link rel="stylesheet" href="vendor/niceselect/nice-select.min.css" />
+	<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/index.css" />
 	<link rel="stylesheet" href="css/index.css" />
 </head>
+
 <body>
-	
+
 	<!--************************************
 				Header Start
 		*************************************-->
-		<header th:replace="~{/web/fragments/header :: header}"></header>
-		<!--************************************
+	<header th:replace="~{/web/fragments/header :: header}"></header>
+	<!--************************************
 				Header End
 		*************************************-->
-	
+
 	<section class="home-index-slider slider-arrow slider-dots">
 		<div class="banner-part banner-1">
 			<div class="container">
@@ -42,15 +43,14 @@
 					<div class="col-md-6 col-lg-6">
 						<div class="banner-content">
 							<h1>Giao hàng tận nhà miễn phí trong 24h </h1>
-							<p>Giao hàng nhanh thuộc công ty Rau Xanh. Với thâm niên nhiều năm, dịch vụ đã vươn lên top đầu và được đông đảo người dân địa phương ủng hộ.</p>
+							<p>Giao hàng nhanh thuộc công ty Rau Xanh. Với thâm niên nhiều năm, dịch vụ đã vươn lên top
+								đầu và được đông đảo người dân địa phương ủng hộ.</p>
 							<div class="banner-btn">
-								<a class="btn btn-inline"
-									th:href="@{/products}">
+								<a class="btn btn-inline" th:href="@{/products}">
 									<i class="fas fa-shopping-basket"></i>
 									<span>Mua ngay</span>
 								</a>
-								<a class="btn btn-outline"
-									href="javascript:void(0);">
+								<a class="btn btn-outline" href="javascript:void(0);">
 									<i class="icofont-sale-discount"></i>
 									<span>Chấp nhận đề nghị</span>
 								</a>
@@ -82,8 +82,7 @@
 									<i class="fas fa-shopping-basket"></i>
 									<span>Mua ngay</span>
 								</a>
-								<a class="btn btn-outline"
-									href="javascript:void(0);">
+								<a class="btn btn-outline" href="javascript:void(0);">
 									<i class="icofont-sale-discount"></i>
 									<span>Chấp nhận đơn đặt hàng</span>
 								</a>
@@ -100,9 +99,9 @@
 				<li th:each="item : ${coutnProductByCategory}">
 					<a class="suggest-card" th:href="@{/productByCategory(id=${item[0]})}">
 						<img src="images/suggest/02.jpg" alt="suggest" />
-							<h5>
-								[[${item[1]}]] <span>Số Lượng : [[${item[2]}]] </span>
-							</h5>
+						<h5>
+							[[${item[1]}]] <span>Số Lượng : [[${item[2]}]] </span>
+						</h5>
 					</a>
 				</li>
 			</ul>
@@ -127,26 +126,21 @@
 										<label class="label-text new">Đang Bán</label>
 										<th:block th:if="${item.discount}!=0">
 
-											<label class="label-text sale">- [[${item.discount + '%'}]]</label></th:block>
+											<label class="label-text sale">- [[${item.discount + '%'}]]</label>
+										</th:block>
 									</div>
 									<button class="product-wish wish">
 										<i class="fas fa-heart"></i>
 									</button>
 									<a class="product-image" th:href="@{/productDetail(id=${item.productId})}">
 										<img th:src="@{'/loadImage?imageName='+${item.productImage}}" alt="product" />
-										</a>
+									</a>
 									<div class="product-widget">
-										 
-										<a
-											title="Video Product"
-											href="https://youtu.be/9xzcVxSBbG8"
-											class="venobox fas fa-play"
-											data-autoplay="true"
-											data-vbtype="video">
+
+										<a title="Video Product" href="https://youtu.be/9xzcVxSBbG8"
+											class="venobox fas fa-play" data-autoplay="true" data-vbtype="video">
 										</a>
-										<a
-											title="Detail Product"
-											th:href="@{/productDetail(id=${item.productId})}"
+										<a title="Detail Product" th:href="@{/productDetail(id=${item.productId})}"
 											class="fas fa-eye">
 										</a>
 									</div>
@@ -157,25 +151,29 @@
 									</h6>
 									<h6 class="product-price">
 										<th:block th:if="${item.discount}!=0">
-											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
-										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
+											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+'
+												đ']]</del>
+										</th:block>
+										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100),
+											1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
-									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
+									<a class="product-add1" title="Thêm giỏ hàng"
+										th:href="@{/addToCart(productId=${item.productId})}">
 										<i class="fas fa-shopping-basket"></i><span>Thêm vào giỏ hàng</span>
 									</a>
-									
+
 								</div>
 							</div>
 						</li>
 					</ul>
 				</div>
-				
+
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-btn-25">
-						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>Xem thêm</span></a>
+						<a th:href="@{/products}" class="btn btn-outline"><i class="fas fa-eye"></i><span>Xem
+								thêm</span></a>
 					</div>
 				</div>
 			</div>
@@ -210,26 +208,21 @@
 									<div class="product-label">
 										<label class="label-text feat">Vượt trội</label>
 										<th:block th:if="${item.discount}!=0">
-											<label class="label-text sale">- [[${item.discount + '%'}]]</label></th:block>
+											<label class="label-text sale">- [[${item.discount + '%'}]]</label>
+										</th:block>
 									</div>
 									<button class="product-wish wish">
 										<i class="fas fa-heart"></i>
 									</button>
 									<a class="product-image" th:href="@{/productDetail(id=${item.productId})}">
 										<img th:src="@{'/loadImage?imageName='+${item.productImage}}" alt="product" />
-										</a>
+									</a>
 									<div class="product-widget">
-										
-										<a
-											title="Product Video"
-											href="https://youtu.be/9xzcVxSBbG8"
-											class="venobox fas fa-play"
-											data-autoplay="true"
-											data-vbtype="video">
+
+										<a title="Product Video" href="https://youtu.be/9xzcVxSBbG8"
+											class="venobox fas fa-play" data-autoplay="true" data-vbtype="video">
 										</a>
-										<a
-											title="Detail Product"
-											th:href="@{/productDetail(id=${item.productId})}"
+										<a title="Detail Product" th:href="@{/productDetail(id=${item.productId})}"
 											class="fas fa-eye">
 										</a>
 									</div>
@@ -241,13 +234,17 @@
 									<h6 class="product-price">
 										<th:block th:if="${item.discount}!=0">
 
-											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
-										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
+											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+'
+												đ']]</del>
+										</th:block>
+										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100),
+											1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
-									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
+									<a class="product-add1" title="Thêm giỏ hàng"
+										th:href="@{/addToCart(productId=${item.productId})}">
 										<i class="fas fa-shopping-basket"></i><span>Thêm vào giỏ hàng</span>
 									</a>
-									
+
 								</div>
 							</div>
 						</li>
@@ -257,8 +254,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-btn-25">
-						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>Xem thêm</span></a>
+						<a th:href="@{/products}" class="btn btn-outline"><i class="fas fa-eye"></i><span>Xem
+								thêm</span></a>
 					</div>
 				</div>
 			</div>
@@ -282,8 +279,8 @@
 								class="countdown-time"><span>00</span><small>Phút</small></span><span
 								class="countdown-time"><span>00</span><small>Giây</small></span>
 						</div>
-						<a th:href="@{/products}" class="btn btn-inline"><i
-							class="fas fa-shopping-basket"></i><span>Mua Ngay</span></a>
+						<a th:href="@{/products}" class="btn btn-inline"><i class="fas fa-shopping-basket"></i><span>Mua
+								Ngay</span></a>
 					</div>
 				</div>
 				<div class="col-lg-1"></div>
@@ -316,51 +313,50 @@
 									<div class="product-label">
 										<label class="label-text new">Mới</label>
 										<th:block th:if="${item.discount}!=0">
-											<label class="label-text sale">- [[${item.discount + '%'}]]</label></th:block>
+											<label class="label-text sale">- [[${item.discount + '%'}]]</label>
+										</th:block>
 									</div>
 									<button class="product-wish wish">
 										<i class="fas fa-heart"></i>
 									</button>
 									<a class="product-image" th:href="@{/productDetail(id=${item.productId})}">
 										<img th:src="@{'/loadImage?imageName='+${item.productImage}}" alt="product" />
-										</a>
+									</a>
 									<div class="product-widget">
-										
-										<a
-											title="Product Video"
-											href="https://youtu.be/9xzcVxSBbG8"
-											class="venobox fas fa-play"
-											data-autoplay="true"
-											data-vbtype="video">
+
+										<a title="Product Video" href="https://youtu.be/9xzcVxSBbG8"
+											class="venobox fas fa-play" data-autoplay="true" data-vbtype="video">
 										</a>
-										<a
-											title="Detail Product"
-											th:href="@{/productDetail(id=${item.productId})}"
+										<a title="Detail Product" th:href="@{/productDetail(id=${item.productId})}"
 											class="fas fa-eye">
 										</a>
 									</div>
 								</div>
 								<div class="product-content">
-<!--									<div class="product-rating">-->
-<!--										<i class="active icofont-star"></i>-->
-<!--										<i class="active icofont-star"></i>-->
-<!--										<i class="active icofont-star"></i>-->
-<!--										<i class="active icofont-star"></i>-->
-<!--										<i class="icofont-star"></i>-->
-<!--									</div>-->
+									<!--									<div class="product-rating">-->
+									<!--										<i class="active icofont-star"></i>-->
+									<!--										<i class="active icofont-star"></i>-->
+									<!--										<i class="active icofont-star"></i>-->
+									<!--										<i class="active icofont-star"></i>-->
+									<!--										<i class="icofont-star"></i>-->
+									<!--									</div>-->
 									<h6 class="product-name">
 										<a th:href="@{/productDetail(id=${item.productId})}">[[${item.productName}]]</a>
 									</h6>
 									<h6 class="product-price">
 										<th:block th:if="${item.discount}!=0">
 
-											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
-										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
+											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+'
+												đ']]</del>
+										</th:block>
+										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100),
+											1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
-									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
+									<a class="product-add1" title="Thêm giỏ hàng"
+										th:href="@{/addToCart(productId=${item.productId})}">
 										<i class="fas fa-shopping-basket"></i><span>Thêm vào giỏ hàng</span>
 									</a>
-									
+
 								</div>
 							</div>
 						</li>
@@ -370,8 +366,8 @@
 			<div class="row">
 				<div class="col">
 					<div class="section-btn-25">
-						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>Xem thêm</span></a>
+						<a th:href="@{/products}" class="btn btn-outline"><i class="fas fa-eye"></i><span>Xem
+								thêm</span></a>
 					</div>
 				</div>
 			</div>
@@ -393,10 +389,9 @@
 			</div>
 		</div>
 	</div>
-	
 
-	<section class="news-part"
-			 style="background: url(images/newsletter.jpg) no-repeat center">
+
+	<section class="news-part" style="background: url(images/newsletter.jpg) no-repeat center">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-5 col-lg-6 col-xl-7">
@@ -426,7 +421,8 @@
 						</div>
 						<div class="intro-content">
 							<h5>Giao hàng tận nhà miễn phí</h5>
-							<p>Giao hàng đúng sản phẩm nhanh chóng, đúng hẹn, hỗ trợ giao tận cửa nếu có nhu ... hạng vàng rồi mà hóa đơn trên 100k vẫn k dc freeship vẫn tính 10k ship.</p>
+							<p>Giao hàng đúng sản phẩm nhanh chóng, đúng hẹn, hỗ trợ giao tận cửa nếu có nhu ... hạng
+								vàng rồi mà hóa đơn trên 100k vẫn k dc freeship vẫn tính 10k ship.</p>
 						</div>
 					</div>
 				</div>
@@ -437,7 +433,8 @@
 						</div>
 						<div class="intro-content">
 							<h5>Chính Sách Hoàn Tiền</h5>
-							<p>Hoàn lại số tiền bằng với tiền vận chuyển mà người mua đã thanh toán cho đơn vị vận chuyển thông qua “Số dư tài khoản Vegetable-Organic” trên ứng dụng.</p>
+							<p>Hoàn lại số tiền bằng với tiền vận chuyển mà người mua đã thanh toán cho đơn vị vận
+								chuyển thông qua “Số dư tài khoản Vegetable-Organic” trên ứng dụng.</p>
 						</div>
 					</div>
 				</div>
@@ -459,23 +456,25 @@
 						</div>
 						<div class="intro-content">
 							<h5>Thanh toán an toàn</h5>
-							<p>Người mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 07 (bảy) ngày (đối với các sản phẩm thuộc Cửa Hàng) và 03 (ba) ngày (đối với các sản phẩm không thuộc Cửa Hàng) kể từ lúc đơn hàng được cập nhật giao hàng thành công.</p>
+							<p>Người mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 07 (bảy) ngày (đối với các sản
+								phẩm thuộc Cửa Hàng) và 03 (ba) ngày (đối với các sản phẩm không thuộc Cửa Hàng) kể từ
+								lúc đơn hàng được cập nhật giao hàng thành công.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	
+
 	<!--************************************
 				Footer Start
 		*************************************-->
-		<footer th:replace="~{/web/fragments/footer :: footer}"></footer>
-				
-		<!--************************************
+	<footer th:replace="~{/web/fragments/footer :: footer}"></footer>
+
+	<!--************************************
 				Footer End
 		*************************************-->
-		
+
 	<script src="vendor/bootstrap/jquery-1.12.4.min.js"></script>
 	<script src="vendor/bootstrap/popper.min.js"></script>
 	<script src="vendor/bootstrap/bootstrap.min.js"></script>
@@ -490,4 +489,5 @@
 	<script src="js/slick.js"></script>
 	<script src="js/main.js"></script>
 </body>
+
 </html>

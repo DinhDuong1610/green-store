@@ -46,7 +46,7 @@ public class IndexAdminController {
         User user = userRepository.findByEmail(principal.getName());
         model.addAttribute("user", user);
 
-        List<User> users = userRepository.findAll();
+        List<User> users = userRepository.findAllByUserIdNot(user.getUserId());
         model.addAttribute("users", users);
 
         return "/admin/users";
