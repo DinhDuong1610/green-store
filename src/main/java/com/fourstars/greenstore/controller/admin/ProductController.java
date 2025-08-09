@@ -97,55 +97,9 @@ public class ProductController {
         return "admin/products";
     }
 
-    // @PostMapping(value = "/addProduct")
-    // public String addProduct(@ModelAttribute("product") Product product, ModelMap
-    // model,
-    // @RequestParam("file") MultipartFile file, HttpServletRequest
-    // httpServletRequest) {
-
-    // if (productRepository.ProductName(product.getProductName()).isEmpty()) {
-    // try {
-    // File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
-    // FileOutputStream fos = new FileOutputStream(convFile);
-    // fos.write(file.getBytes());
-    // fos.close();
-    // } catch (IOException e) {
-    // }
-
-    // product.setProductImage(file.getOriginalFilename());
-
-    // product.setEnteredDate(new Date());
-    // Product p = productRepository.save(product);
-    // p.setQrCode(p.getProductId() + ".png");
-    // productRepository.save(p);
-    // if (null != p) {
-    // String filePath = pathUploadImage + "/" + p.getProductId() + ".png";
-    // String qrCodeContent = "http://localhost:8077/product/{id}";
-    // int width = 400;
-    // int height = 400;
-    // qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width,
-    // height);
-
-    // model.addAttribute("message", "Add success");
-    // model.addAttribute("product", product);
-    // return "redirect:/admin/products";
-
-    // } else {
-    // model.addAttribute("error", "Add failure");
-    // model.addAttribute("product", product);
-    // return "redirect:/admin/products";
-    // }
-    // } else {
-    // model.addAttribute("error", "Product already exists ");
-    // model.addAttribute("product", product);
-    // return "admin/products";
-    // }
-
-    // }
-
     @PostMapping(value = "/addProduct")
     public String addProduct(@ModelAttribute("product") Product product, ModelMap model,
-            @RequestParam("file") MultipartFile file) { // Bỏ HttpServletRequest nếu không dùng
+            @RequestParam("file") MultipartFile file) {
 
         if (file.isEmpty()) {
             model.addAttribute("error", "Vui lòng chọn một file ảnh!");
