@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Navbar</title>
 </head>
+
 <body>
-	<div class="sidebar sidebar-style-2" th:fragment="navbar">			
+
+	<div class="sidebar sidebar-style-2" th:fragment="navbar">
 		<div class="sidebar-wrapper scrollbar scrollbar-inner">
 			<div class="sidebar-content">
 				<div class="user">
 					<div class="avatar-sm float-left mr-2">
-						<img src="../assets/img/05.png" alt="..." class="avatar-img rounded-circle">
+						<img th:src="@{/assets/img/05.png}" alt="..." class="avatar-img rounded-circle">
 					</div>
 					<div class="info">
 						<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -68,7 +71,6 @@
 										<span class="sub-item">Quản Lý Bình Luận</span>
 									</a>
 								</li>
-
 								<li>
 									<a th:href="@{/admin/products}">
 										<span class="sub-item">Quản Lý Sản Phẩm</span>
@@ -132,5 +134,7 @@
 			</div>
 		</div>
 	</div>
+
 </body>
+
 </html>

@@ -68,7 +68,7 @@ public class RegisterController {
         model.addAttribute("message",
                 "Mã xác thực OTP đã được gửi tới Email : " + dto.getEmail() + " , hãy kiểm tra Email của bạn!");
 
-        return "/web/confirmOtpRegister";
+        return "web/confirmOtpRegister";
     }
 
     @PostMapping("/confirmOtpRegister")

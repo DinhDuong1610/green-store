@@ -58,7 +58,7 @@ public class AccountController {
                 model.addAttribute("email", email);
                 model.addAttribute("message", "Mã xác thực OTP đã được gửi tới Email : " + user.getEmail()
                         + " , hãy kiểm tra Email của bạn!");
-                return new ModelAndView("/web/confirmOtpForgotPassword", model);
+                return new ModelAndView("web/confirmOtpForgotPassword", model);
             }
         }
         model.addAttribute("error", "Email này chưa đăng ký!");
@@ -88,7 +88,7 @@ public class AccountController {
             model.addAttribute("newPassword", newPassword);
             model.addAttribute("newPassword", confirmPassword);
             model.addAttribute("email", email);
-            return new ModelAndView("/web/changePassword", model);
+            return new ModelAndView("web/changePassword", model);
         }
 
         if (!changePassword.getNewPassword().equals(changePassword.getConfirmPassword())) {
@@ -97,7 +97,7 @@ public class AccountController {
             model.addAttribute("newPassword", confirmPassword);
             model.addAttribute("error", "error");
             model.addAttribute("email", email);
-            return new ModelAndView("/web/changePassword", model);
+            return new ModelAndView("web/changePassword", model);
         }
         User user = userRepository.findByEmail(email);
         user.setStatus(true);
@@ -106,7 +106,7 @@ public class AccountController {
         model.addAttribute("message", "Đặt lại mật khẩu thành công!");
         model.addAttribute("email", "");
         session.removeAttribute("otp");
-        return new ModelAndView("/web/changePassword", model);
+        return new ModelAndView("web/changePassword", model);
     }
 
 }

@@ -49,7 +49,7 @@ public class IndexAdminController {
         List<User> users = userRepository.findAllByUserIdNot(user.getUserId());
         model.addAttribute("users", users);
 
-        return "/admin/users";
+        return "admin/users";
     }
 
     @GetMapping(value = "/export3")

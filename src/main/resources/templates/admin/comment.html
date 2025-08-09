@@ -4,12 +4,11 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="UTF-8" />
-    <title>Trang quản trị</title>
+    <title>Trang quản trị - Quản lý Bình luận</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="/assets/img/icon.ico" type="image/x-icon" />
+    <link rel="icon" th:href="@{/assets/img/icon.ico}" type="image/x-icon" />
 
-    <!-- Fonts and icons -->
-    <script src="/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script th:src="@{/assets/js/plugin/webfont/webfont.min.js}"></script>
     <script>
         WebFont.load({
             google: { "families": ["Lato:300,400,700,900"] },
@@ -20,11 +19,10 @@
         });
     </script>
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/atlantis.min.css">
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="/assets/css/demo.css">
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/atlantis.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/demo.css}">
+
     <style>
         .switch {
             position: relative;
@@ -33,14 +31,12 @@
             height: 34px;
         }
 
-        /* Hide default HTML checkbox */
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
 
-        /* The slider */
         .slider {
             position: absolute;
             cursor: pointer;
@@ -91,18 +87,8 @@
 
 <body>
     <div class="wrapper">
-        <!-- Header -->
-
         <th:block th:replace="~{admin/fragments/header :: header}"></th:block>
-
-        <!-- End Header -->
-
-        <!-- Navbar -->
-
         <th:block th:replace="~{admin/fragments/navbar :: navbar}"></th:block>
-
-        <!-- End Navbar -->
-
         <div class="main-panel">
             <div class="content">
                 <div class="page-inner">
@@ -157,16 +143,8 @@
                                                 <td>[[${item.product.productName}]]</td>
                                                 <td>
                                                     <th:block th:if="${item.status == 0}">
-                                                        <!-- <label class="switch">
-                                                            <input type="checkbox">
-                                                            <span class="slider round"></span>
-                                                        </label> -->
                                                     </th:block>
                                                     <th:block th:if="${item.status == 1}">
-                                                        <!-- <label class="switch">
-                                                            <input type="checkbox" checked>
-                                                            <span class="slider round"></span>
-                                                        </label> -->
                                                         <a th:href="@{/admin/detailComment/{id}(id=${item.id})}"
                                                             type="button" data-toggle="tooltip" title=""
                                                             class="btn btn-link btn-primary btn-lg"
@@ -186,24 +164,17 @@
             </div>
         </div>
 
-        <!-- End Custom template -->
     </div>
-    <!--   Core JS Files   -->
-    <script src="/assets/js/core/jquery.3.2.1.min.js"></script>
-    <script src="/assets/js/core/popper.min.js"></script>
-    <script src="/assets/js/core/bootstrap.min.js"></script>
-    <!-- jQuery UI -->
-    <script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-    <script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script th:src="@{/assets/js/core/jquery.3.2.1.min.js}"></script>
+    <script th:src="@{/assets/js/core/popper.min.js}"></script>
+    <script th:src="@{/assets/js/core/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js}"></script>
+    <script th:src="@{/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js}"></script>
 
-    <!-- jQuery Scrollbar -->
-    <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-    <!-- Datatables -->
-    <script src="/assets/js/plugin/datatables/datatables.min.js"></script>
-    <!-- Atlantis JS -->
-    <script src="/assets/js/atlantis.min.js"></script>
-    <!-- Atlantis DEMO methods, don't include it in your project! -->
-    <script src="/assets/js/setting-demo2.js"></script>
+    <script th:src="@{/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js}"></script>
+    <script th:src="@{/assets/js/plugin/datatables/datatables.min.js}"></script>
+    <script th:src="@{/assets/js/atlantis.min.js}"></script>
+    <script th:src="@{/assets/js/setting-demo2.js}"></script>
     <script>
         $(document).ready(function () {
             $('#basic-datatables').DataTable({

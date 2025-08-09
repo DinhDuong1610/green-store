@@ -47,6 +47,9 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 		http
 				.csrf().disable()
 				.authorizeHttpRequests()
+				.requestMatchers("/static/**", "/assets/**", "/css/**", "/js/**", "/images/**", "/fonts/**",
+						"/vendor/**")
+				.permitAll()
 				.requestMatchers("/admin/**").hasRole("ADMIN")
 				.requestMatchers("/checkout").hasRole("USER")
 				.requestMatchers("/favorite").hasRole("USER")

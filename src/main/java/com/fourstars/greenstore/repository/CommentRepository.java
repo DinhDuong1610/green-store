@@ -11,9 +11,9 @@ import com.fourstars.greenstore.entities.Comment;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    @Query(value = "SELECT * FROM Comments where product_id = ?;", nativeQuery = true)
+    @Query(value = "SELECT * FROM comments where product_id = ?;", nativeQuery = true)
     public List<Comment> selectAllSaves(int productId);
 
-    @Query(value = "SELECT * FROM Comments where user_id = ?1 and product_id =?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM comments where user_id = ?1 and product_id =?2", nativeQuery = true)
     public Optional<Comment> SearchUser(int user_id, int productId);
 }
